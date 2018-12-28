@@ -1,10 +1,9 @@
 ﻿// 主成分分析を行う
+// visualization.csから多次元データを受け取り、次元圧縮してvisualization.csに戻す。
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MathNet.Numerics.LinearAlgebra;
-using MathNet.Numerics.LinearAlgebra.Double;
 
 public class PCA : MonoBehaviour {
 
