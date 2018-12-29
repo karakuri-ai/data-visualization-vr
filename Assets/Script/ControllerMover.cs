@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿// コントローラのトリガーを押しているときにカメラを移動する。
+// 移動方向はコントローラの向き(レーザーのベクトル方向)
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ControllerMover : MonoBehaviour {
 
     public GameObject LaserPointer;
-    public float moveSpeed = 0.1f;
+    public float moveSpeed = 0.5f;
 
     void Start () {
     }

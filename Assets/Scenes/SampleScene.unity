@@ -918,6 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990a97d7dd14241adbf995da79505da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Rigidbody: {fileID: 0}
 --- !u!114 &1929108980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -987,7 +988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LaserPointer: {fileID: 357007698}
-  moveSpeed: 2
+  moveSpeed: 0.5
 --- !u!114 &1929108984
 MonoBehaviour:
   m_ObjectHideFlags: 0
