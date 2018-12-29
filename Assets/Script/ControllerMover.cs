@@ -7,10 +7,7 @@ using UnityEngine;
 public class ControllerMover : MonoBehaviour {
 
     public GameObject LaserPointer;
-    public float moveSpeed = 0.5f;
-
-    void Start () {
-    }
+    public float moveSpeed = 0.5f; // 移動速度
 	
 	void Update () {
         // トリガーを押している間はコントローラーの向きに移動
@@ -19,6 +16,7 @@ public class ControllerMover : MonoBehaviour {
         }
     }
 
+    // カメラ移動
     private void moveFoward()
     {
         Vector3 movedirection = LaserPointer.transform.forward;

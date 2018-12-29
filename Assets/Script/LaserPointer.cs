@@ -14,10 +14,10 @@ public class LaserPointer : MonoBehaviour {
     private Transform _CenterEyeAnchor; // 目の中心
 
     [SerializeField]
-    private float _MaxDistance = 100.0f; // 距離
+    private float _MaxDistance = 100.0f; // レーザーの最大距離
 
     [SerializeField]
-    private LineRenderer _LaserPointerRenderer; // LineRenderer
+    private LineRenderer _LaserPointerRenderer;
 
     // コントローラー
     public Transform Pointer
@@ -30,7 +30,7 @@ public class LaserPointer : MonoBehaviour {
             }else if (controller == OVRInput.Controller.LTrackedRemote) {
                 return _LeftHandAnchor;
             }
-            // どちらも取れなければ目の間からビームが出る
+            // 左右のどちらからも取れなければ目の間からビームが出る
             return _CenterEyeAnchor;
         }
     }
@@ -44,13 +44,13 @@ public class LaserPointer : MonoBehaviour {
         // コントローラー位置からRayを飛ばす
         Ray pointerRay = new Ray(pointer.position, pointer.forward);
 
-        // レーザーのきてん
+        // 起点を設定
         _LaserPointerRenderer.SetPosition(0, pointerRay.origin);
 
         RaycastHit hitInfo;
         if (Physics.Raycast(pointerRay, out hitInfo, _MaxDistance))
         {
-            // Rayがヒットしたらそこまで
+            // Rayがヒットしたらそこで止める
             _LaserPointerRenderer.SetPosition(1, hitInfo.point);
         }
         else

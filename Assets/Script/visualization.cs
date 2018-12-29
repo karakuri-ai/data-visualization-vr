@@ -25,6 +25,7 @@ public class visualization : MonoBehaviour {
             csvDatas.Add(line.Split(',')); // ,区切りでリストに追加
         }
 
+        // 可視化処理
         for (int i = 0; i < csvDatas.Count(); i++)
         {
             Instantiate(obj, new Vector3(float.Parse(csvDatas[i][0]), float.Parse(csvDatas[i][1]), float.Parse(csvDatas[i][2])), Quaternion.identity);
