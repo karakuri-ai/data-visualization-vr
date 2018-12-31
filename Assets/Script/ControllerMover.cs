@@ -1,5 +1,5 @@
 ﻿// コントローラのトリガーを押しているときにカメラを移動する。
-// 移動方向はコントローラの向き(レーザーのベクトル方向)
+// 移動方向はコントローラの向き(Rayのベクトル方向)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

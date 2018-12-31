@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿// コントローラーからRayを出す
+// ref http://rikoubou.hatenablog.com/entry/2018/06/04/193607
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserPointer : MonoBehaviour {
+public class LaserPointer : MonoBehaviour
+{
 
     [SerializeField]
     private Transform _RightHandAnchor;
@@ -22,40 +25,49 @@ public class LaserPointer : MonoBehaviour {
     // コントローラー
     public Transform Pointer
     {
-        get{
+        get
+        {
             // 現在アクティブなコントローラーを取得
             var controller = OVRInput.GetActiveController();
-            if (controller == OVRInput.Controller.RTrackedRemote){
+            if (controller == OVRInput.Controller.RTrackedRemote)
+            {
                 return _RightHandAnchor;
-            }else if (controller == OVRInput.Controller.LTrackedRemote) {
+            }
+            else if (controller == OVRInput.Controller.LTrackedRemote)
+            {
                 return _LeftHandAnchor;
             }
             // 左右のどちらからも取れなければ目の間からビームが出る
             return _CenterEyeAnchor;
         }
     }
-	
-	void Update () {
+
+    void Update()
+    {
         var pointer = Pointer; // コントローラーを取得
+
         // コントローラーがない or LineRendererがなければ何もしない
-        if (pointer == null || _LaserPointerRenderer == null){
+        if (pointer == null || _LaserPointerRenderer == null)
+        {
             return;
         }
+
         // コントローラー位置からRayを飛ばす
         Ray pointerRay = new Ray(pointer.position, pointer.forward);
 
         // 起点を設定
         _LaserPointerRenderer.SetPosition(0, pointerRay.origin);
 
+        // Rayの長さの調整
         RaycastHit hitInfo;
         if (Physics.Raycast(pointerRay, out hitInfo, _MaxDistance))
         {
-            // Rayがヒットしたらそこで止める
+            // Rayが起点から_MaxDistanceの間でColliderと交わるとき、それ以上伸ばさない
             _LaserPointerRenderer.SetPosition(1, hitInfo.point);
         }
         else
         {
-            // Rayがヒットしなかったら向いている方向にMaxDistance伸ばす
+            // Rayと交わるColliderがなければ、_MaxDistanceまで伸ばす。
             _LaserPointerRenderer.SetPosition(1, pointerRay.origin + pointerRay.direction * _MaxDistance);
         }
     }
