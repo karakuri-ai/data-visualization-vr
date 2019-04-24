@@ -1,9 +1,12 @@
-﻿// コントローラのトリガーを押しているときにカメラを移動する。
-// 移動方向はコントローラの向き(Rayのベクトル方向)
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// コントローラーのトリガーを押している時にカメラを移動させる
+/// 移動方向はコントローラーの向き(Rayの方向)
+/// OVRCameraRigにアタッチされている。
+/// </summary>
 public class ControllerMover : MonoBehaviour {
 
     public GameObject LaserPointer;
@@ -16,7 +19,9 @@ public class ControllerMover : MonoBehaviour {
         }
     }
 
-    // カメラ移動
+    /// <summary>
+    /// Rayの方向に一定のスピードでカメラを移動させる。
+    /// </summary>
     private void moveFoward()
     {
         Vector3 movedirection = LaserPointer.transform.forward;

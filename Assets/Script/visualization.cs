@@ -1,10 +1,13 @@
-﻿// 3次元データをcsvファイルから読みとって可視化する。
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Linq;
 
+/// <summary>
+/// 主成分分析後の位置データを受け取って、プロットする。
+/// Visualizerにアタッチされている。
+/// </summary>
 public class visualization : MonoBehaviour {
 
     TextAsset csvFile;

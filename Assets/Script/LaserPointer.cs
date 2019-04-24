@@ -1,9 +1,12 @@
-﻿// コントローラーからRayを出す
-// ref http://rikoubou.hatenablog.com/entry/2018/06/04/193607
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// コントラーラーからRayを出す。
+/// ref http://rikoubou.hatenablog.com/entry/2018/06/04/193607
+/// LaserPointerにアタッチされている。
+/// </summary>
 public class LaserPointer : MonoBehaviour
 {
 
